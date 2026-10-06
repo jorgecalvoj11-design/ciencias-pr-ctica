@@ -46,7 +46,7 @@ function mark(i,ok){const s=st[i];s.d++;if(ok)pts++;s.c.textContent=s.d+' / '+s.
 
 function quizItem(i,it,opts){
   const d=el('div','item'),o=el('div','opts'),fb=el('p','fb'),miss=0;fb.setAttribute('aria-live','polite');
-  if(it.img){const im=el('img');im.src='assets/'+it.img+'.jpg';im.alt=it.t;im.onerror=()=>im.remove();d.append(im)}
+  if(it.img){const im=el('img');im.src='+it.img+'.jpg';im.alt=it.t;im.onerror=()=>im.remove();d.append(im)}
   d.append(el('p','q',it.t));
   opts.forEach(x=>{const b=el('button','opt',x);b.type='button';b.onclick=()=>{
     if(x===it.a){b.classList.add('good');o.querySelectorAll('button').forEach(k=>k.disabled=true);d.classList.add('done');say(fb,true,'¡Correcto! 🎉');mark(i,!miss)}
